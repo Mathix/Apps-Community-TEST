@@ -12,10 +12,10 @@
     # FACTS #######################################################################
     - name: 'Set Known Facts'
       set_fact:
-        pgrole: 'mylar'
-        intport: '8090'
-        extport: '8090'
-        image: 'mathix9/mylar'
+        pgrole: 'komga'
+        intport: '8080'
+        extport: '8481'
+        image: 'gotson/komga'
 
     # CORE (MANDATORY) ############################################################
     - name: 'Including cron job'
@@ -34,11 +34,8 @@
       set_fact:
         pg_volumes:
           - '/opt/appdata/{{pgrole}}:/config'
-          - '/mnt/unionfs/comics:/comics'
-          - '/mnt/downloads:/downloads'
-          - '/mnt/nzbget/completed:/completed'
+          - '/mnt/unionfs/comics:/books'
           - '/etc/localtime:/etc/localtime:ro'
-          - '/mnt:/mnt'
 
     - name: 'Setting PG ENV'
       set_fact:
